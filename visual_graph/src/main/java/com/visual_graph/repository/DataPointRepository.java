@@ -23,5 +23,13 @@ public interface DataPointRepository extends JpaRepository<DataPoint, Long> {
     @Query("SELECT DISTINCT d.endYear FROM DataPoint d")
     List<Integer> findAllEndYear();
 
+    List<DataPoint> findAllByStartYear(int parseInt);
+
+    List<DataPoint> findAllByEndYear(int parseInt);
+
+    List<DataPoint> findAllByCountry(String filterValue);
+
+    List<DataPoint> findAllByCity(String filterValue);
+
 
 }

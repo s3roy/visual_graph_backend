@@ -5,9 +5,12 @@ import com.visual_graph.service.DataPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/data-points")
@@ -48,5 +51,13 @@ public class DataPointController {
     public List<Integer> getAllEndYear() {
         System.out.println("List of enddate endpoint is hit");
         return dataPointService.getAllEndYear();
+    }
+
+    @GetMapping("/sectors/count")
+    public Map<String, Integer> countUniqueSectors(
+            @RequestParam(required = false) String sortBy,
+            @RequestParam(required = false) String filterValue
+    ) {
+        return dataPointService.getCountBySector(sortBy, filterValue);
     }
 }
