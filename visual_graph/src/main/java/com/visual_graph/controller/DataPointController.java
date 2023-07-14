@@ -20,12 +20,21 @@ public class DataPointController {
         this.dataPointService = dataPointService;
     }
 
-    @GetMapping
+    @GetMapping("/api")
     public List<DataPoint> getAllDataPoints() {
-    	System.out.print("Data point is hitted");
+        System.out.println("Data points endpoint is hit");
         return dataPointService.getAllDataPoints();
     }
 
-    // Add more endpoint methods as needed
+    @GetMapping("/cities")
+    public List<String> getAllCities() {
+        System.out.println("List of cities endpoint is hit");
+        return dataPointService.getAllCities();
+    }
 
+    @GetMapping("/countries")
+    public List<String> getAllCountries() {
+        System.out.println("List of countries endpoint is hit");
+        return dataPointService.getAllCountries();
+    }
 }

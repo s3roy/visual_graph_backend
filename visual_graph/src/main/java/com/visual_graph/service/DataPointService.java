@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DataPointService {
@@ -21,6 +22,19 @@ public class DataPointService {
         return dataPointRepository.findAll();
     }
 
-    // Add more service methods as needed
+    public List<String> getAllCities() {
+        List<String> cities = dataPointRepository.findAllCities();
+        return cities.stream()
+                .filter(city -> !city.trim().isEmpty())
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getAllCountries() {
+        List<String> cities = dataPointRepository.findAllCountries();
+        return cities.stream()
+                .filter(city -> !city.trim().isEmpty())
+                .collect(Collectors.toList());
+    }
+
 
 }
