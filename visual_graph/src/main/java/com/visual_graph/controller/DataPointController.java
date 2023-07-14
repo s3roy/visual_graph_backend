@@ -37,4 +37,16 @@ public class DataPointController {
         System.out.println("List of countries endpoint is hit");
         return dataPointService.getAllCountries();
     }
+
+    @GetMapping("/start-years")
+    public List<Integer> getAllStartYear() {
+        System.out.println("List of startdate endpoint is hit");
+        return dataPointService.getAllStartYear();
+    }
+
+    @GetMapping("/end-years")
+    public List<Integer> getAllEndYear() {
+        System.out.println("List of enddate endpoint is hit");
+        return dataPointService.getAllEndYear();
+    }
 }

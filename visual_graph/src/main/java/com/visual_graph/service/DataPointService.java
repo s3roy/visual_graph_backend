@@ -36,5 +36,21 @@ public class DataPointService {
                 .collect(Collectors.toList());
     }
 
+    public List<Integer> getAllStartYear() {
+    List<Integer> startYears = dataPointRepository.findAllStartYear();
+    return startYears.stream()
+            .filter(startYear -> startYear != null)
+            .collect(Collectors.toList());
+    }
+
+    public List<Integer> getAllEndYear() {
+    List<Integer> endYears = dataPointRepository.findAllEndYear();
+    return endYears.stream()
+            .filter(endYear -> endYear != null)
+            .collect(Collectors.toList());
+    }
+
+
+
 
 }
